@@ -16,10 +16,39 @@
             ResultSet rs;
             String s_accion;
             String s_idautor;
+            String s_nombre;
+            String s_f_nacimiento;
 
         %>
     </head>
     <body>
+        <form name="AgregarAutorForm" action="DatosAutor.jsp" method="GET">
+            <table border="0" align="center">
+                <thead>
+                    <tr>
+                        <th colspan="2">Agregar Autor</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nombre: </td>
+                        <td><input type="text" name="f_nombre" value="" maxlength="30" size="20" /></td>
+                    </tr>
+                    <tr>
+                        <td>Fecha de Nacimiento: </td>
+                        <td><input type="text" name="f_estado" value="" maxlength="30" size="20"/></td>
+                    </tr>
+                    <tr align="center">
+                        <td colspan="2">
+                            <input type="submit" value="Agregar" name="f_agregar" />
+                            <input type="hidden" name="f_accion" value="C" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </form>
          <h1 align="center">DATOS AUTOR</h1>
         <table border="1" cellspacing="1" cellpadding="1" align="center">
             <thead>
@@ -44,6 +73,15 @@
                         consulta =  "   delete from autor "
                                     + " where "
                                     + " idautor = " + s_idautor + "; ";
+                        //out.print(consulta);
+                        pst = cn.prepareStatement(consulta);
+                        pst.executeUpdate();
+                        }else if (s_accion.equals("C")) {
+                        s_nombre = request.getParameter("f_nombre");
+                        s_f_nacimiento = request.getParameter("f_estado");
+                        consulta =  "   insert into "
+                                    + " autor(nombre,f_nacimiento) "
+                                    + " values ('"+ s_nombre +"','"+ s_f_nacimiento +"')";
                         //out.print(consulta);
                         pst = cn.prepareStatement(consulta);
                         pst.executeUpdate();

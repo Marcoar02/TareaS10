@@ -13,9 +13,54 @@
             Connection cn;
             PreparedStatement pst;
             ResultSet rs;
+            String s_accion;
+            String s_titulo;
+            String s_cantidad;
+            String s_año;
+            String s_precio;
+            String s_estado;
         %>
     </head>
     <body>
+        <form name="AgregarEstudianteForm" action="datosestudiante.jsp" method="GET">
+            <table border="0" align="center">
+                <thead>
+                    <tr>
+                        <th colspan="2">Agregar Estudiante</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nombre: </td>
+                        <td><input type="text" name="f_nombre" value="" maxlength="30" size="20" /></td>
+                    </tr>
+                    <tr>
+                        <td>Apellido: </td>
+                        <td><input type="text" name="f_apellidos" value="" maxlength="40" size="20" /></td>
+                    </tr>
+                    <tr>
+                        <td>DNI: </td>
+                        <td><input type="text" name="f_dni" value="" maxlength="8" size="8"/></td>
+                    </tr>
+                    <tr>
+                        <td>Código</td>
+                        <td><input type="text" name="f_codigo" value="" maxlength="12" size="11"/></td>
+                    </tr>
+                    <tr>
+                        <td>Estado: </td>
+                        <td><input type="text" name="f_estado" value="" maxlength="1" size="2"/></td>
+                    </tr>
+                    <tr align="center">
+                        <td colspan="2">
+                            <input type="submit" value="Agregar" name="f_agregar" />
+                            <input type="hidden" name="f_accion" value="C" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </form>
         <h1 align="center">DATOS LIBRO</h1>
         <table border="1" cellspacing="1" cellpadding="1" align="center">
             <thead>
